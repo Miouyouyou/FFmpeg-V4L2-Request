@@ -1,0 +1,27 @@
+From 0d91e3fadac78c6c5fc6c7b0391d02cdaab8506f Mon Sep 17 00:00:00 2001
+From: Jonas Karlman <jonas@kwiboo.se>
+Date: Fri, 17 May 2019 06:07:33 +0000
+Subject: [PATCH 10/10] fixup! Add common V4L2 request API code
+
+---
+ configure | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/configure b/configure
+index 83948c9..aab827b 100755
+--- a/configure
++++ b/configure
+@@ -6323,6 +6323,10 @@ enabled rkmpp             && { require_pkg_config rkmpp rockchip_mpp  rockchip/r
+                                { enabled libdrm ||
+                                  die "ERROR: rkmpp requires --enable-libdrm"; }
+                              }
++enabled v4l2_request      && { enabled libdrm ||
++                               die "ERROR: v4l2-request requires --enable-libdrm"; } &&
++                             { enabled libudev ||
++                               die "ERROR: v4l2-request requires --enable-libudev"; }
+ enabled vapoursynth       && require_pkg_config vapoursynth "vapoursynth-script >= 42" VSScript.h vsscript_init
+ 
+ 
+-- 
+2.16.4
+

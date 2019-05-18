@@ -1,0 +1,9 @@
+ffmpeg*
+*.old
+*.bak
+*.so
+*#
+\*#
+*~
+*.*swp
+
